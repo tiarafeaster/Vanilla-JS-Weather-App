@@ -1,0 +1,51 @@
+#wind {
+	color: #70757a;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 16px;
+}
+#weather {
+	display: inline-block;
+	line-height: 60px;
+	vertical-align: top;
+	font-size: 48px;
+}
+span {
+	display: inline-block;
+	line-height: 24px;
+	padding-left: 6px;
+	vertical-align: top;
+	font-size: 16px;
+	margin-top: 6px;
+}
+.weather-app {
+    border: 1px black solid;
+    border-radius: 5px;
+    
+    margin: 30px auto;
+    padding: 20px
+}
+body {
+    max-width: 600px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 24px;
+    font-weight: 100;
+    line-height: 28px;
+    color: #878787;
+    margin-bottom: 0;
+}
+
+li {
+    list-style: none;
+    color: #70757a;
+    font-size: 12px;
+    line-height: 16px;
+    padding-left: 9px;
+    padding-top: 6px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}

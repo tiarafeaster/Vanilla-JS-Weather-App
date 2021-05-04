@@ -17,30 +17,38 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Orlando</h1>
-			<ul>
-				<li>Tuesday 11:00am</li>
-				<li>Sunny</li>
-			</ul>
-			<div class="row">
-				<div class="col-sm-6">
-					<img
-						src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-						alt="Sunny"
-					/>
-					85 °F | °C
-				</div>
-				<div class="col-sm-6">
-					<ul>
-						<li>Precipitation: 0%</li>
-						<li>Humidity: 67%</li>
-						<li>Wind: 2 mph</li>
-					</ul>
+			<div class="weather-app">
+				<h1>Orlando</h1>
+				<ul>
+					<li>Tuesday 11:00am</li>
+					<li>Sunny</li>
+				</ul>
+				<div class="row">
+					<div class="col-md-6" id="weather">
+						<img
+							src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+							alt="Sunny"
+						/>
+						85
+						<span> °F | °C</span>
+					</div>
+					<div class="col-md-6" id="wind">
+						<ul>
+							<li>Precipitation: 0%</li>
+							<li>Humidity: 67%</li>
+							<li>Wind: 2 mph</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-            Open-source code by <a href="github.com/tiarafeaster/vanilla-js-weather-app"> Tiara Feaster
+			Open-source code by
+			<a
+				href="https://github.com/tiarafeaster/Vanilla-JS-Weather-App"
+				target="_blank"
+			>
+				Tiara Feaster
+			</a>
 		</div>
-
 		<script src="src/weather.js"></script>
 	</body>
 </html>
