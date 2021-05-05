@@ -69,3 +69,11 @@ li {
 	text-transform: capitalize;
 }
 
+#weather .active {
+	color: black;
+	cursor: default;
+}
+
+#weather .active:hover {
+	text-decoration: none
+}

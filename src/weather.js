@@ -19,7 +19,8 @@ function formatDate(timestamp) {
 
 function showTemperature(response) {
 	let temperature = document.querySelector("#temperature");
-	temperature.innerHTML = Math.round(response.data.main.temp);
+	fahrenheitTemperature = response.data.main.temp;
+	temperature.innerHTML = Math.round(fahrenheitTemperature);
 
 	let city = document.querySelector(".city");
 	city.innerHTML = response.data.name;
@@ -49,7 +50,7 @@ function showTemperature(response) {
 function search(city) {
 	let apiKey = "5423fee45fccae4c3cd5d7b43daf88ad";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(showTemperature);
+	axios.get(apiUrl).then(showTemperature);
 }
 
 function handleSubmit(event) {
@@ -58,8 +59,32 @@ function handleSubmit(event) {
 	search(cityInput.value);
 }
 
-search("New York");
+function showCelciusTemperature(event) {
+	event.preventDefault();
+	let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+	fahrenheitLink.classList.remove("active");
+	celciusLink.classList.add("active");
+	let temperature = document.querySelector("#temperature");
+	temperature.innerHTML = Math.round(celciusTemperature);
+}
 
+function showFahrenheitTemperature(event) {
+	event.preventDefault();
+	let temperature = document.querySelector("#temperature");
+	fahrenheitLink.classList.add("active");
+	celciusLink.classList.remove("active");
+	temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahr-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+search("New York");
