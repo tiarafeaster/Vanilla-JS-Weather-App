@@ -35,6 +35,7 @@ function showTemperature(response) {
 }
 
 let apiKey = "5423fee45fccae4c3cd5d7b43daf88ad";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Orlando&appid=${apiKey}&units=imperial`;
+let city = "Orlando";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(showTemperature);
