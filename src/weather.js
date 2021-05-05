@@ -19,18 +19,23 @@ function formatDate(timestamp) {
 
 function showTemperature(response) {
 	let temperature = document.querySelector("#temperature");
-	let city = document.querySelector(".city");
-	let description = document.querySelector("#description");
-	let humidity = document.querySelector("#humidity");
-	let wind = document.querySelector("#wind");
-	let date = document.querySelector("#date");
-
-	city.innerHTML = response.data.name;
 	temperature.innerHTML = Math.round(response.data.main.temp);
+
+	let city = document.querySelector(".city");
+	city.innerHTML = response.data.name;
+
+	let description = document.querySelector("#description");
 	description.innerHTML = response.data.weather[0].description;
+
+	let humidity = document.querySelector("#humidity");
 	humidity.innerHTML = response.data.main.humidity;
+
+	let wind = document.querySelector("#wind");
 	wind.innerHTML = Math.round(response.data.wind.speed);
+
+	let date = document.querySelector("#date");
 	date.innerHTML = formatDate(response.data.dt * 1000);
+
 	console.log(response.data);
 }
 
