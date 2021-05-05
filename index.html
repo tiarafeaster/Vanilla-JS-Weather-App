@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="weather-app">
 				<div class="row">
-					<form id="search-form" class="mt-3">
+					<form id="search-form">
 						<div class="row">
 							<div class="col-9">
 								<input
@@ -32,7 +32,11 @@
 								/>
 							</div>
 							<div class="col-3">
-								<input type="submit" value="search" class="btn btn-primary w-100"  />
+								<input
+									type="submit"
+									value="search"
+									class="btn btn-primary w-100"
+								/>
 							</div>
 						</div>
 					</form>
@@ -40,7 +44,10 @@
 					<div class="col" id="weather">
 						<img id="icon" src="" alt="" />
 						<span id="temperature"> </span>
-						<span id="units"> <a href="#" id="fahr-link" class="active"> °F </a>| <a href="#"id="celcius-link"> °C </a></span>
+						<span id="units">
+							<a href="#" id="fahr-link" class="active"> °F </a>|
+							<a href="#" id="celcius-link"> °C </a></span
+						>
 						<ul>
 							<!--<li>Precipitation: 14%</li> -->
 							<li>Humidity: <span id="humidity"></span> %</li>
