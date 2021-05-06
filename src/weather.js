@@ -87,4 +87,35 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 let fahrenheitLink = document.querySelector("#fahr-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
+function showForecast() {
+	let forecast = document.querySelector("#weather-forecast");
+
+	let forecastHTML = `<div class="row">`;
+	let days = ["Mon", "Tues", "Wed", "Thurs"];
+	
+    
+    days.forEach(function (day) {
+		forecastHTML =
+			forecastHTML +
+			`
+		<div class="col-2">
+			<div class="forecast-date">${day}</div>
+			    <img
+			    src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
+			    alt="partly cloudy"
+			    width="40"
+			    />
+			<div class="forecast-temperature">
+				<span class="forecast-temperature-max"> 18° </span>
+				<span class="forecast-temperature-min"> 12° </span>
+			</div>
+		</div>`;
+	});
+
+	forecastHTML = forecastHTML + `</div>`;
+	forecast.innerHTML = forecastHTML;
+}
+
+showForecast();
+
 search("New York");
