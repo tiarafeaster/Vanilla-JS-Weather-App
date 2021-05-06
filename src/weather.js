@@ -23,8 +23,8 @@ function getForecast(coordinates) {
 	let apiKey = "5423fee45fccae4c3cd5d7b43daf88ad";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 
-    console.log(apiUrl);
-    axios.get(apiUrl).then(showForecast);
+	console.log(apiUrl);
+	axios.get(apiUrl).then(showForecast);
 }
 
 function showTemperature(response) {
@@ -99,35 +99,48 @@ celsiusLink.addEventListener("click", showCelsiusTemperature);
 let fahrenheitLink = document.querySelector("#fahr-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
+function formatDay(timestamp) {
+	let date = new Date(timestamp * 1000);
+	let day = date.getDay();
+	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+	return days[day];
+}
+
 function showForecast(response) {
-    console.log(response.data.daily);
-	let forecast = document.querySelector("#weather-forecast");
+	let forecast = response.data.daily;
+	let forecastElement = document.querySelector("#weather-forecast");
 
 	let forecastHTML = `<div class="row">`;
-	let days = ["Mon", "Tues", "Wed", "Thurs"];
 
-	days.forEach(function (day) {
-		forecastHTML =
-			forecastHTML +
-			`
-		<div class="col-2">
-			<div class="forecast-date">${day}</div>
+	forecast.forEach(function (forecastDay, index) {
+		if (index < 4) {
+			forecastHTML =
+				forecastHTML +
+				`
+		<div class="col-3">
+			<div class="forecast-date">${formatDay(forecastDay.dt)}</div>
 			    <img
-			    src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
+			    src= "http://openweathermap.org/img/wn/${
+						forecastDay.weather[0].icon
+					}@2x.png";
 			    alt="partly cloudy"
 			    width="40"
 			    />
 			<div class="forecast-temperature">
-				<span class="forecast-temperature-max"> 18° </span>
-				<span class="forecast-temperature-min"> 12° </span>
+				<span class="forecast-temperature-max"> ${Math.round(
+					forecastDay.temp.max
+				)}° </span>
+				<span class="forecast-temperature-min"> ${Math.round(
+					forecastDay.temp.min
+				)}° </span>
 			</div>
 		</div>`;
+		}
 	});
 
 	forecastHTML = forecastHTML + `</div>`;
-	forecast.innerHTML = forecastHTML;
+	forecastElement.innerHTML = forecastHTML;
 }
-
-
 
 search("New York");
