@@ -59,20 +59,20 @@ function handleSubmit(event) {
 	search(cityInput.value);
 }
 
-function showCelciusTemperature(event) {
+function showCelsiusTemperature(event) {
 	event.preventDefault();
-	let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+	let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
 	fahrenheitLink.classList.remove("active");
-	celciusLink.classList.add("active");
+	celsiusLink.classList.add("active");
 	let temperature = document.querySelector("#temperature");
-	temperature.innerHTML = Math.round(celciusTemperature);
+	temperature.innerHTML = Math.round(celsiusTemperature);
 }
 
 function showFahrenheitTemperature(event) {
 	event.preventDefault();
 	let temperature = document.querySelector("#temperature");
 	fahrenheitLink.classList.add("active");
-	celciusLink.classList.remove("active");
+	celsiusLink.classList.remove("active");
 	temperature.innerHTML = Math.round(fahrenheitTemperature);
 }
 
@@ -81,8 +81,8 @@ let fahrenheitTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelciusTemperature);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 let fahrenheitLink = document.querySelector("#fahr-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
