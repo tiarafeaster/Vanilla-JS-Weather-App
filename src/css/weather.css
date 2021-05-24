@@ -1,3 +1,6 @@
+body {
+}
+
 ul {
 	color: #70757a;
 	display: inline-block;
@@ -67,7 +70,11 @@ h3 {
 	margin: 30px auto;
 	border-radius: 10px;
 	padding: 20px;
-	background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
+	background: linear-gradient(
+		68.6deg,
+		rgb(252, 165, 241) 1.8%,
+		rgb(181, 255, 255) 100.5%
+	);
 }
 
 .container {
@@ -78,15 +85,15 @@ h3 {
 	margin-top: 20px;
 	text-align: center;
 }
- .forecast-date  {
+.forecast-date {
 	font-size: 16px;
-	opacity: 0.6; 
- }
+	opacity: 0.6;
+}
 
- .forecast-temperature-min {
-	 opacity: 0.6;
- }
+.forecast-temperature-min {
+	opacity: 0.6;
+}
 
- .forecast-temperatures {
-	 font-size: 13px;
- }
+.forecast-temperatures {
+	font-size: 13px;
+}
